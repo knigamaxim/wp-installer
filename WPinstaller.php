@@ -15,4 +15,9 @@ class WpInstaller
 		$this->setEnvParams();
 	}
 
+	protected function setEnvParams()
+	{
+		$this->env = $this->parseEnvInfo();
+	}	
+	
 }
