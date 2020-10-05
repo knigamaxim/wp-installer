@@ -20,4 +20,15 @@ class WpInstaller
 		$this->env = $this->parseEnvInfo();
 	}	
 	
+	protected function parseEnvInfo()
+	{
+		$envRawData = file( $this->envFile );
+		$parsed = [];
+		foreach ($envRawData as $k => $v) {
+			$chunk = explode('=', $v);
+			$parsed[$chunk[0]] = trim($chunk[1]);
+		}
+		return $parsed;
+	}	
+	
 }
