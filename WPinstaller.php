@@ -30,5 +30,20 @@ class WpInstaller
 		}
 		return $parsed;
 	}	
+
+	
+	public function install()
+	{
+		try {
+			$getInstall = $this->setWpDbParams()
+						   	   ->setWpAdminParams();
+			$this->wpResponse = $getInstall;
+			return $this;
+		} catch (\ErrorException $e) {
+			echo $e->getMessage() . 'Db connection error. Please, check params in your _env file!';
+			die;
+		}
+	}
+
 	
 }
