@@ -45,5 +45,18 @@ class WpInstaller
 		}
 	}
 
+	protected function setWpDbParams()
+	{
+		$context = stream_context_create([
+			'http' => [
+				'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+				'method' => 'POST',
+				'content' => http_build_query([
+					'language' => 'ru_RU'
+				]),
+			]
+		]);
+		file_get_contents('http://wp.local/wp-admin/setup-config.php?step=0', null, $context);	
+	}	
 	
 }
