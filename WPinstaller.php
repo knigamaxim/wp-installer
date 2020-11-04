@@ -89,6 +89,18 @@ class WpInstaller
 		]);
 		file_get_contents($this->env['domain'] . '/wp-admin/setup-config.php?step=2', null, $context);
 		return $this;
-	}	
+	}
+
+	public function parseWpResponse()
+	{
+		$str = $this->wpResponse;
+		preg_match('~<h1>.*</h1>~', $str, $found);
+		return $found[0];
+	}
+	
+	public function getResults()
+	{
+		return $this->parseWpResponse();
+	}
 	
 }
