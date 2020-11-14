@@ -1,6 +1,6 @@
 <?php
 
-require('classes/WpInstaller.php');
+require('WpInstaller.php');
 
 $wp = new WpInstaller();
 echo $wp->install()
