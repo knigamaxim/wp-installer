@@ -1,0 +1,11 @@
+domain=http://wp.local
+dbname=wp
+dbusername=root
+dbpassword=
+dbhost=127.0.0.1
+tablesprefix=wp_
+weblog_title=My wp site
+admin_name=admin
+admin_password=1
+admin_email=admin@mysite.com
+wplanguage=en_EN
